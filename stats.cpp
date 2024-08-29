@@ -1,18 +1,29 @@
 #include "stats.h"
-#include <bits/stdc++.h> 
-#include <iostream>
+#include <numeric>
+#include <algorithm>
 
-
-stat Statistics::ComputeStatistics(const std::vector<double> statData)
+namespace Statistics
 {
-    int index = 0;
-    double sumOfData = 0;
-    double avg = 0;
-
-    for (index = 0; index <= statData.size(); index++)
+    Stats ComputeStatistics(const std::vector <float>& numbers)
     {
-        sumOfData = sumOfData + statData.at(index);
+        Stats computedStats;
+
+        if (numbers.size() == 0)
+        {
+            computedStats.avg = NAN;
+            computedStats.max = NAN;
+            computedStats.min = NAN;
+
+            return computedStats;
+        }
+
+        computedStats.avg = std::accumulate(numbers.begin(),numbers.end(),0.0)/numbers.size();
+
+        computedStats.max = *std::max_element(numbers.begin(),numbers.end());
+
+        computedStats.min = *std::min_element(numbers.begin(),numbers.end());
+
+        return computedStats;
     }
-    avg =  sumOfData / statData.size();
-    return stat();
 }
+

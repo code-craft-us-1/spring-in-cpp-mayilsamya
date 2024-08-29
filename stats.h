@@ -1,7 +1,14 @@
 #include <vector>
-
+#include <algorithm>
+#include <cmath>
 namespace Statistics {
     // define the Stats structure here. See the tests to infer its properties
-    
-    stat ComputeStatistics(const std::vector<double> statData );
+	struct Stats
+	{
+		float avg;
+		float max;
+		float min;
+
+	};
+    stat ComputeStatistics(const std::vector<float>& numbers);
 }
