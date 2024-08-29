@@ -10,14 +10,14 @@ namespace Statistics
 
         if (numbers.size() == 0)
         {
-            computedStats.avg = NAN;
+            computedStats.average = NAN;
             computedStats.max = NAN;
             computedStats.min = NAN;
 
             return computedStats;
         }
 
-        computedStats.avg = std::accumulate(numbers.begin(),numbers.end(),0.0)/numbers.size();
+        computedStats.average = std::accumulate(numbers.begin(),numbers.end(),0.0)/numbers.size();
 
         computedStats.max = *std::max_element(numbers.begin(),numbers.end());
 
